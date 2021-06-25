@@ -1,0 +1,93 @@
+.LoginForm__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 180px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #489;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.LoginForm__form > input {
+  outline: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.LoginForm__form > label {
+  margin-top: 20px;
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+
+.LoginForm__form > button {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ErrorBox {
+  max-width: 200px;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  background-color: rgb(241, 189, 189);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.Messenger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+  background: #f0f0f0;
+  padding: 1rem;
+}
+
+
+.Messenger__logout > button{
+  padding: 10px;
+  margin: 10px;
+  background: #59a7ff;
+}
+.Messenger__form {
+  max-width: 300px;
+  margin: auto;
+}
+
+.Messager__messagebox {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.MessageBody {
+  padding: 5px;
+  margin: 10px;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.Message__guest {
+  margin-left: auto;
+  text-align: left;
+  background-color: #92b7c9;
+}
+
+.Message__user {
+  margin-right: auto;
+  text-align: right;
+  background-color: #59a7ff;
+}
