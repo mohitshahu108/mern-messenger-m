@@ -12,11 +12,17 @@ const auth = require("./routes/auth");
 mongoose
   .connect(process.env.DB_HOST, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
   })
-  .then(console.log("database connected successfully"))
-  .catch((err) => console.log(err));
+  .then(() => {
+    console.log("Successfully connected to the database");
+  })
+  .catch((err) => {
+    console.log("Could not connect to the database. Exiting now...", err);
+    process.exit();
+  });
 
 /** ALL middle ware here */
 app.use(express.json());
@@ -36,6 +42,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log(`Server is up and running on ${port}`));
+app.listen(process.env.PORT || 4000, () =>
+  console.log(`Ready on http://localhost:4000`)
+);
