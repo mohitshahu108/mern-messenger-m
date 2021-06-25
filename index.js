@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 require("dotenv").config();
@@ -19,6 +20,7 @@ mongoose
 
 /** ALL middle ware here */
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/messages", messages);
 app.use("/api/users", users);
