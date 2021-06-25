@@ -29,7 +29,6 @@ export const LoginForm = (props) => {
       .then(function (response) {
         localStorage.setItem("userInfo", JSON.stringify(response.data));
         props.history.push("/messenger");
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -41,9 +40,8 @@ export const LoginForm = (props) => {
   };
   return (
     <div>
-
       <form onSubmit={submitHandler} className="LoginForm__form">
-      {err && <div className="ErrorBox">{err}</div>}
+        {err && <div className="ErrorBox">{err}</div>}
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -52,7 +50,7 @@ export const LoginForm = (props) => {
           autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          />
+        />
         <label htmlFor="password">Password:</label>
         <input
           type={showPassword ? "text" : "password"}
@@ -61,7 +59,7 @@ export const LoginForm = (props) => {
           autoComplete="off"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          />
+        />
         <p onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
         </p>
@@ -70,7 +68,7 @@ export const LoginForm = (props) => {
           type="submit"
           disabled={!email || !password}
           onClick={submitHandler}
-          >
+        >
           Login
         </button>
 
