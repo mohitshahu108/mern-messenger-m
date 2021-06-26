@@ -4,11 +4,12 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
-require("dotenv").config();
+const dotenv = require("dotenv");
 const messages = require("./routes/messageRoute");
 const users = require("./routes/userRouter");
 const auth = require("./routes/auth");
 
+dotenv.config();
 mongoose
   .connect(process.env.DB_HOST, {
     useNewUrlParser: true,
