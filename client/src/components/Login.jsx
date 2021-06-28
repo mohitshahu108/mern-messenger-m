@@ -6,6 +6,10 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
 export const LoginForm = (props) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  if (userInfo) {
+    props.history.push("/messenger");
+  }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +36,7 @@ export const LoginForm = (props) => {
       })
       .catch(function (error) {
         console.log(error);
-        setErr("Invalid username or password");
+        setErr("Invalid user name or password");
         setTimeout(() => {
           setErr("");
         }, 3000);

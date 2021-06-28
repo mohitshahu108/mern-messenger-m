@@ -4,46 +4,47 @@ import axios from "axios";
 
 export const Messenger = (props) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  if (!userInfo) {
-    props.history.push("/");
-  }
-  const email = userInfo.email;
-
+  
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
-
+  
   const logout = () => {
     localStorage.clear();
     props.history.push("/");
   };
-
+  
   const sendtext = (e) => {
     e.preventDefault();
     axios
-      .post("/api/messages", {
-        email: email,
-        message: text,
-      })
-      .then(function (responce) {
-        console.log(responce.data);
-        setIsUpdated(true);
-      });
+    .post("/api/messages", {
+      email: email,
+      message: text,
+    })
+    .then(function (responce) {
+      console.log(responce.data);
+      setIsUpdated(true);
+    });
     setText("");
   };
-
+  
   useEffect(() => {
     axios
-      .get("/api/messages")
-      .then((responce) => {
-        setMessages(responce.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    .get("/api/messages")
+    .then((responce) => {
+      setMessages(responce.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
     setIsUpdated(false);
   }, [isUpdated]);
-
+  
+  if (!userInfo) {
+    props.history.push("/");
+  }
+  
+  const email = userInfo.email;
   return (
     <div className="Messenger">
       <p className="Messenger__logout">
